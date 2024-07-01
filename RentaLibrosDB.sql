@@ -38,3 +38,5 @@ go
 
 drop database RENTA_LIBROS_DB
 go
+
+insert into cliente(nombre,email,telefono) values ('Fabian','fabian@gmail.com','987654321')
