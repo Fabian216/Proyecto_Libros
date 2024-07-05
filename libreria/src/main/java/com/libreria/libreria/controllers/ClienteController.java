@@ -29,18 +29,17 @@ public class ClienteController {
         return this.cliente.findById(id);
     }
 
-    @GetMapping
+    @PostMapping
     public Cliente create(@RequestBody Cliente nuevo_cliente){
         return this.cliente.create(nuevo_cliente);
     }
 
-    @GetMapping("/{id}")
-    public Cliente update(@PathVariable int id,
-                          @RequestBody Cliente cliente_actualizado){
+    @PutMapping("/{id}")
+    public Cliente update(@PathVariable int id, @RequestBody Cliente cliente_actualizado){
         return this.cliente.update(id,cliente_actualizado);
     }
 
-    @GetMapping("/{id}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable int id){
         this.cliente.delete(id);
     }

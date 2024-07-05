@@ -17,7 +17,6 @@ CREATE TABLE libro (
     titulo VARCHAR(200),
     autor VARCHAR(100),
     genero VARCHAR(50),
-    lanzamiento DATETIME,
     estado VARCHAR(20) -- 'Disponible' o 'rentado'
 );
 go
@@ -40,3 +39,7 @@ drop database RENTA_LIBROS_DB
 go
 
 insert into cliente(nombre,email,telefono) values ('Fabian','fabian@gmail.com','987654321')
+go
+
+select * from cliente
+go

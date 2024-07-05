@@ -24,8 +24,6 @@ public class Libro {
     private String autor;
     @Column(name = "genero")
     private String genero;
-    @Column(name = "lanzamiento")
-    private LocalDate lanzamiento;
     @Column(name = "estado")
     private String estado;
 }

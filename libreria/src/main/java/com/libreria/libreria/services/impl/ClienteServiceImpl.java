@@ -11,12 +11,12 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @Service
-public class ClienteService implements IClienteService {
+public class ClienteServiceImpl implements IClienteService {
 
     private IClienteRepository repository;
 
     @Autowired
-    public ClienteService(IClienteRepository repository) {
+    public ClienteServiceImpl(IClienteRepository repository) {
         this.repository = repository;
     }
 
