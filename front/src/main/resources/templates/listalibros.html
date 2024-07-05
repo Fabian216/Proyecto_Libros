@@ -13,20 +13,20 @@
     <thead >
     <tr>
         <th >Id</th>
-        <th >Dni</th>
-        <th >Nombre</th>
-        <th >Correo</th>
-        <th >Telefono</th>
+        <th >Titulo</th>
+        <th >Autor</th>
+        <th >Genero</th>
+        <th >Estado</th>
     </tr>
     </thead>
 
     <tbody>
-    <tr th:each="cli : ${getAllClientes}" >
-        <td th:text="${cli.id}">  </td>
-        <td th:text="${cli.dni}">   </td>
-        <td th:text="${cli.nombre}">   </td>
-        <td th:text="${cli.email}">   </td>
-        <td th:text="${cli.telefono}">   </td>
+    <tr th:each="lib : ${getAllLibros}" >
+        <td th:text="${lib.id}">  </td>
+        <td th:text="${lib.titulo}">   </td>
+        <td th:text="${lib.autor}">   </td>
+        <td th:text="${lib.genero}">   </td>
+        <td th:text="${lib.estado}">   </td>
     </tr>
     </tbody>
 

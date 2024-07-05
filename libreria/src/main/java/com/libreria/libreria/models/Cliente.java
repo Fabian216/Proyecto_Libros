@@ -17,6 +17,9 @@ public class Cliente {
     @Column(name = "id")
     private int id;
 
+    @Column(name = "dni")
+    private String dni;
+
     @Column(name = "nombre")
     private String nombre;
 

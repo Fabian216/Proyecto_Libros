@@ -45,6 +45,7 @@ public class ClienteServiceImpl implements IClienteService {
 
         Cliente bd_cliente = this.findById(id);
 
+        bd_cliente.setDni(cliente.getDni());
         bd_cliente.setNombre(cliente.getNombre());
         bd_cliente.setEmail(cliente.getEmail());
         bd_cliente.setTelefono(cliente.getTelefono());

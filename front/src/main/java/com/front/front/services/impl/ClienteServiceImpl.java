@@ -1,6 +1,8 @@
 package com.front.front.services.impl;
 
+
 import com.front.front.models.Cliente;
+import com.front.front.services.IClienteService;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.client.RestTemplate;
@@ -10,22 +12,27 @@ import java.util.Arrays;
 import java.util.List;
 
 @Service
-public class IClienteService implements com.front.front.services.IClienteService {
+public class ClienteServiceImpl implements IClienteService {
+
+    private RestTemplate restTemplate;
 
     @Autowired
-    private RestTemplate restTemplate;
+    public ClienteServiceImpl(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
+
 
     @Override
     public List<Cliente> getAll(){
         String url = "http://localhost:8080/clientes";
-        Cliente[] obj = restTemplate.getForObject(url,Cliente[].class);
+        Cliente[] obj = this.restTemplate.getForObject(url,Cliente[].class);
         return Arrays.asList(obj);
     }
 
     @Override
     public Cliente create(Cliente entity) {
         String url = "http://localhost:8080/clientes";
-        return restTemplate.postForObject(url,entity,Cliente.class);
+        return this.restTemplate.postForObject(url,entity,Cliente.class);
     }
 
 

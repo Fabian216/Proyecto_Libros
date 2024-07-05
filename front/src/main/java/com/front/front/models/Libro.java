@@ -1,6 +1,5 @@
 package com.front.front.models;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,10 +7,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Cliente {
+
+public class Libro {
     private int id;
-    private String dni;
-    private String nombre;
-    private String email;
-    private String telefono;
+    private String titulo;
+    private String autor;
+    private String genero;
+    private String estado;
 }
