@@ -2,6 +2,7 @@ package com.front.front.controllers;
 
 
 
+
 import com.front.front.models.Libro;
 import com.front.front.services.ILibroService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -43,5 +45,27 @@ public class LibroController {
         return "nuevolibro";
     }
 
+    @GetMapping("/libro/{id}")
+    public String getLibroById(@PathVariable int id, Model model) {
+        Libro libro = this.libro.findById(id);
+        model.addAttribute("libro", libro);
+        return "detallelibro";
+    }
+
+
+    @PostMapping("/libro/editar/{id}")
+    public String updateLibro(@PathVariable int id, @ModelAttribute Libro libro, Model model) {
+        Libro updatedLibro = this.libro.update(id, libro);
+        model.addAttribute("updateLibro", updatedLibro);
+        return "redirect:/listalibros";
+    }
+
+
+
+    @GetMapping("/libro/eliminar/{id}")
+    public String deleteLibro(@PathVariable int id) {
+        this.libro.delete(id);
+        return "redirect:/listalibros";
+    }
 
 }

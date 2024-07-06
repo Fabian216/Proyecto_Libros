@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Nuevo Libro</title>
+    <title>Detalle del Libro</title>
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="container mt-5">
-    <h1 class="mb-4">Nuevo Libro</h1>
-    <form th:action="@{/crearlibros}" th:object="${formlibro}" method="post">
+    <h1 class="mb-4">Detalle del Libro</h1>
+    <form th:action="@{/libro/editar/{id}(id=${libro.id})}" th:object="${libro}" method="post">
         <div class="mb-3">
             <label for="titulo" class="form-label">Título</label>
             <input type="text" class="form-control" id="titulo" name="titulo" th:field="*{titulo}" required>
@@ -25,7 +25,7 @@
             <label for="estado" class="form-label">Estado</label>
             <input type="text" class="form-control" id="estado" name="estado" th:field="*{estado}" required>
         </div>
-        <button type="submit" class="btn btn-primary">Crear</button>
+        <button type="submit" class="btn btn-primary">Actualizar</button>
     </form>
 </div>
 
