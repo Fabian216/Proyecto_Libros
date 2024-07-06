@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -40,6 +41,26 @@ public class ClienteController {
     public String formCliente(Model model){
         model.addAttribute("formcliente", new Cliente());
         return "nuevocliente";
+    }
+
+    @GetMapping("/cliente/{id}")
+    public String getClienteById(@PathVariable int id, Model model) {
+        Cliente cliente = this.cliente.findById(id);
+        model.addAttribute("cliente", cliente);
+        return "clientevista";
+    }
+
+    @PostMapping("/cliente/editar/{id}")
+    public String updateCliente(@PathVariable int id, @ModelAttribute Cliente entity, Model model) {
+        Cliente updatedCliente = this.cliente.update(id, entity);
+        model.addAttribute("updateCliente", updatedCliente);
+        return "redirect:/listaclientes";
+    }
+
+    @GetMapping("/cliente/eliminar/{id}")
+    public String deleteCliente(@PathVariable int id) {
+        this.cliente.delete(id);
+        return "redirect:/listaclientes";
     }
 
 }
