@@ -24,7 +24,6 @@ public class ClienteServiceImpl implements IClienteService {
         this.restTemplate = restTemplate;
     }
 
-
     @Override
     public List<Cliente> getAll(){
         String url = "http://localhost:8080/clientes";
